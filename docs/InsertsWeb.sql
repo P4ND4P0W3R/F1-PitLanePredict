@@ -1,3 +1,77 @@
+Sub Create_Tables()
+
+DoCmd.RunSQL "CREATE TABLE Drivers(" & _
+   "DriverID INT," & _
+   "FirstName VARCHAR(50)," & _
+   "LastName VARCHAR(50)," & _
+   "Nationality VARCHAR(50)," & _
+   "DateOfBirth DATE," & _
+   "TeamID INT NOT NULL TeamID," & _
+   "PRIMARY KEY(DriverID)," & _
+   "UNIQUE(TeamID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Teams(" & _
+   "TeamID INT," & _
+   "TeamName VARCHAR(50)," & _
+   "TeamPrincipal VARCHAR(50)," & _
+   "Headquarters VARCHAR(50)," & _
+   "EngineSupplier VARCHAR(50)," & _
+   "ChassisSupplier VARCHAR(50)," & _
+   "PRIMARY KEY(TeamID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Races(" & _
+   "RaceID INT," & _
+   "RaceName VARCHAR(50)," & _
+   "Circuit VARCHAR(50)," & _
+   "Location VARCHAR(50)," & _
+   "DateOfRace DATE," & _
+   "WinnerID INT," & _
+   "PRIMARY KEY(RaceID)," & _
+   "UNIQUE(WinnerID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Results(" & _
+   "ResultID INT," & _
+   "TeamID INT," & _
+   "RaceID INT," & _
+   "DriverID INT," & _
+   "PositionDriver INT," & _
+   "LapTime VARCHAR(50)," & _
+   "PointsEarned DECIMAL(15,2)," & _
+   "PRIMARY KEY(ResultID)," & _
+   "UNIQUE(TeamID)," & _
+   "UNIQUE(RaceID)," & _
+   "UNIQUE(DriverID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Obtain(" & _
+   "DriverID INT," & _
+   "ResultID INT," & _
+   "PRIMARY KEY(DriverID, ResultID)," & _
+   "FOREIGN KEY(DriverID) REFERENCES Drivers(DriverID)," & _
+   "FOREIGN KEY(ResultID) REFERENCES Results(ResultID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Accumulate(" & _
+   "TeamID INT," & _
+   "ResultID INT," & _
+   "PRIMARY KEY(TeamID, ResultID)," & _
+   "FOREIGN KEY(TeamID) REFERENCES Teams(TeamID)," & _
+   "FOREIGN KEY(ResultID) REFERENCES Results(ResultID)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Determine(" & _
+   "RaceID INT," & _
+   "ResultID INT," & _
+   "PRIMARY KEY(RaceID, ResultID)," & _
+   "FOREIGN KEY(RaceID) REFERENCES Races(RaceID)," & _
+   "FOREIGN KEY(ResultID) REFERENCES Results(ResultID)" & _
+");"   
+
+End Sub
+
 INSERT INTO Drivers (DriverID, FirstName, LastName, Nationality, DateOfBirth, TeamID)
 VALUES
 (1, 'Verstappen', 'Max', 'Dutch', '1997-09-30', 2),
