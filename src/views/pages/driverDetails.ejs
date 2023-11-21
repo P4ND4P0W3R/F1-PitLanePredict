@@ -1,0 +1,35 @@
+<!-- C:\Users\frhup\OneDrive - Efrei\Documents\EFREI\L3 - 2023-2024\S5-M\Computer science\TI510M - Advanced Web programming\S5M-AWP-Project\src\views\pages\driverDetails.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Details</title>
+</head>
+<body>
+    <h1>Driver Details</h1>
+
+    <% if (error) { %>
+        <!-- Display an error message if an error occurred -->
+        <p>Error: <%= error %></p>
+    <% } else if (driverDetails) { %>
+        <h2><%= driverDetails.driver_name %></h2>
+        <p>Nationality: <%= driverDetails.nationality %></p>
+
+        <!-- Check if dateOfBirth is defined before accessing its properties -->
+        <% if (driverDetails.date_of_birth) { %>
+            <p>Date of Birth: <%= driverDetails.date_of_birth.toDateString() %></p>
+        <% } %>
+
+        <img src="<%= driverDetails.image %>" alt="<%= driverDetails.driver_name %>">
+
+        <% if (driverDetails.team) { %>
+            <!-- Display team information if available -->
+            <p>Team: <%= driverDetails.team.teamName %></p>
+        <% } %>
+    <% } else { %>
+        <p>Driver not found</p>
+    <% } %>
+</body>
+</html>

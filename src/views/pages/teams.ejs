@@ -1,0 +1,33 @@
+<!-- views/pages/teams.ejs -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../partials/head'); %>
+    <title>Drivers</title>
+</head>
+
+<body class="container">
+    <header>
+        <%- include ('../partials/header'); %>
+    </header>
+    
+    <h1>Teams</h1>
+    <ul>
+        <% teams.forEach(team => { %>
+            <li>
+                <h2><%= team.team_name %></h2>
+                <img src="<%= team.team_logo %>" alt="<%= team.team_name %>">
+            </li>
+        <% }); %>
+    </ul>
+
+    <footer>
+        <%- include ('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>
