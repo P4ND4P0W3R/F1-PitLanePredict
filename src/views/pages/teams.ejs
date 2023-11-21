@@ -1,13 +1,15 @@
-<!-- views/pages/teams.ejs -->
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <%- include ('../partials/head'); %>
-    <title>Drivers</title>
+    <title>Teams</title>
+    <style>
+        .team-logo {
+            width: 400px;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body class="container">
@@ -20,7 +22,8 @@
         <% teams.forEach(team => { %>
             <li>
                 <h2><%= team.team_name %></h2>
-                <img src="<%= team.team_logo %>" alt="<%= team.team_name %>">
+                <!-- Add the "team-logo" class to the image tag -->
+                <img class="team-logo" src="<%= team.team_logo %>" alt="<%= team.team_name %>">
             </li>
         <% }); %>
     </ul>

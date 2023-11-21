@@ -1,13 +1,20 @@
-<!-- C:\Users\frhup\OneDrive - Efrei\Documents\EFREI\L3 - 2023-2024\S5-M\Computer science\TI510M - Advanced Web programming\S5M-AWP-Project\src\views\pages\driverDetails.ejs -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Driver Details</title>
+    <%- include ('../partials/head'); %>
+    <title><%= driverDetails.driver_name %></title>
+    <style>
+        .driver-photo {
+            width: 600px;
+            height: auto;
+        }
+    </style>
 </head>
-<body>
+<body class="container">
+    <header>
+        <%- include ('../partials/header'); %>
+    </header>
+
     <h1>Driver Details</h1>
 
     <% if (error) { %>
@@ -22,7 +29,7 @@
             <p>Date of Birth: <%= driverDetails.date_of_birth.toDateString() %></p>
         <% } %>
 
-        <img src="<%= driverDetails.image %>" alt="<%= driverDetails.driver_name %>">
+        <img class="driver-photo" src="<%= driverDetails.image %>" alt="<%= driverDetails.driver_name %>">
 
         <% if (driverDetails.team) { %>
             <!-- Display team information if available -->
@@ -31,5 +38,9 @@
     <% } else { %>
         <p>Driver not found</p>
     <% } %>
+
+    <footer>
+        <%- include ('../partials/footer'); %>
+    </footer>
 </body>
 </html>

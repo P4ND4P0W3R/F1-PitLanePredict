@@ -1,19 +1,27 @@
 const { getAllTeamsFromDatabase } = require("../models/teamModel");
 
-// Controller function to get all teams and render the teams page
 function getTeams(req, res) {
     teamModel.getAllTeamsFromDatabase((error, teams) => {
         if (error) {
-            console.error(error);
-            res.status(500).send("Internal Server Error");
+        console.error(error);
+        res.status(500).send("Internal Server Error");
         } else {
-            res.render("pages/teams", { teams });
+        res.render("pages/teams", { teams });
         }
     });
 }
 
-// You can define other controller functions for updating, deleting, or inserting teams as needed
+const teamController = {
+    getTeams: async (req, res) => {
+        try {
+            const teams = await getAllTeamsFromDatabase();
+            console.log(teams);
+            res.render("pages/teams", { teams });
+        } catch (error) {
+            console.error("Error fetching teams:", error);
+            res.status(500).send("Internal Server Error");
+        }
+    },
+}
 
-module.exports = {
-    getTeams,
-};
+module.exports = teamController;

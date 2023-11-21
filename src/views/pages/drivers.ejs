@@ -4,6 +4,13 @@
 <head>
     <%- include ('../partials/head'); %>
     <title>Drivers</title>
+    <style>
+        .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+    </style>
 </head>
 
 <body class="container">
@@ -11,17 +18,20 @@
         <%- include ('../partials/header'); %>
     </header>
     
-    <h1>Drivers</h1>
+    <div class="content">
+        <h1>Drivers</h1>
 
-    <ul>
-        <% drivers.forEach(driver => { %>
-            <li>
-                <a href="/drivers/<%= driver.driver_id || '' %>">
-                <%= driver.driver_name || 'Unknown Driver' %>
-                </a>
-            </li>
-        <% }); %>
-    </ul>
+        <ul>
+            <% drivers.forEach(driver => { %>
+                <li>
+                    <a href="/drivers/<%= driver.driver_id || '' %>">
+                    <%= driver.driver_name || 'Unknown Driver' %>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+
 
     <footer>
         <%- include ('../partials/footer'); %>

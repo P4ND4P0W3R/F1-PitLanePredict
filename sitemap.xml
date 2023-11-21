@@ -1,10 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Home Page -->
     <url>
         <loc>http://localhost:3000/</loc>
-        <lastmod>2023-11-07</lastmod>
+        <lastmod>2023-11-21</lastmod>
     </url>
+
+    <!-- Articles Page -->
+    <url>
+        <loc>http://localhost:3000/articles</loc>
+        <lastmod>2023-11-21</lastmod>
+    </url>
+
+    <!-- Races Page -->
+    <url>
+        <loc>http://localhost:3000/races</loc>
+        <lastmod>2023-11-21</lastmod>
+    </url>
+
+    <!-- Teams Page -->
+    <url>
+        <loc>http://localhost:3000/teams</loc>
+        <lastmod>2023-11-21</lastmod>
+    </url>
+
+    <!-- Drivers Page -->
+    <url>
+        <loc>http://localhost:3000/drivers</loc>
+        <lastmod>2023-11-21</lastmod>
+    </url>
+
+    <!-- Bet Page -->
+    <url>
+        <loc>http://localhost:3000/bet</loc>
+        <lastmod>2023-11-21</lastmod>
+    </url>
+
+    <!-- About Page -->
     <url>
         <loc>http://localhost:3000/about</loc>
-        <lastmod>2023-11-07</lastmod>
+        <lastmod>2023-11-21</lastmod>
     </url>
+
 </urlset>
