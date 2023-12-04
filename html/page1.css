@@ -7,9 +7,15 @@ body {
 header {
     background-color: red;
     color: white;
-    padding: 0.02rem;
+    padding: 0.05rem;
     text-align: center;
+    font-size: 0.7rem;
 }
+
+nav{
+    font-size: 14px;
+}
+
 
 nav ul {
     list-style: none;
@@ -23,6 +29,11 @@ nav ul li {
 nav a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: black;
 }
 
 main {
@@ -42,4 +53,9 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
