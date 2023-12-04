@@ -10,15 +10,21 @@ header {
     padding: 0.05rem;
     text-align: center;
     font-size: 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 nav{
     font-size: 14px;
+    margin-right: 40%;
 }
 
 
 nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -58,4 +64,9 @@ h2 {
 a{
     text-decoration: none;
     color: white;
+    cursor: pointer;
+}
+
+h1{
+    margin-left: 13px;
 }
