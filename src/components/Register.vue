@@ -1,20 +1,5 @@
-<template>
-  <form @submit.prevent="register">
-    <label for="username">Username:</label>
-    <input v-model="username" type="text" id="username" required />
-
-    <label for="email">Email:</label>
-    <input v-model="email" type="email" id="email" required />
-
-    <label for="password">Password:</label>
-    <input v-model="password" type="password" id="password" required />
-
-    <button type="submit">Register</button>
-  </form>
-</template>
-
 <script setup lang="ts">
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 import { ref } from "vue";
 
 interface Body {
@@ -29,7 +14,7 @@ const password = ref("mateleo2@gmail.com");
 
 async function register() {
   try {
-    axios.post("http://localhost:3000/api/register", {
+    await axios.post<any, AxiosResponse, Body>("http://localhost:3000/api/register", {
       email: email.value,
       password: password.value,
       username: username.value,
@@ -41,3 +26,18 @@ async function register() {
   }
 }
 </script>
+
+<template>
+  <form @submit.prevent="register">
+    <label for="username">Username:</label>
+    <input v-model="username" type="text" id="username" required />
+
+    <label for="email">Email:</label>
+    <input v-model="email" type="email" id="email" required />
+
+    <label for="password">Password:</label>
+    <input v-model="password" type="password" id="password" required />
+
+    <button type="submit">Register</button>
+  </form>
+</template>
