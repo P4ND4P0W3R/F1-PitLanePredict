@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model Bets {
+  betId     Int       @id @default(autoincrement())
+  userId    Int?
+  raceId    Int?
+  driverId  String?   @db.VarChar(50)
+  amount    Decimal   @db.Decimal(10, 2)
+  odds      Decimal   @db.Decimal(5, 2)
+  betStatus String?   @default("pending") @db.VarChar(10)
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+  Drivers   Drivers?  @relation(fields: [driverId], references: [driverId], onDelete: NoAction, onUpdate: NoAction)
+  Races     Races?    @relation(fields: [raceId], references: [raceId], onDelete: NoAction, onUpdate: NoAction)
+  Users     Users?    @relation(fields: [userId], references: [userId], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Constructors {
+  constructorId String    @id @db.VarChar(50)
+  name          String?   @db.VarChar(100)
+  nationality   String?   @db.VarChar(50)
+  url           String?   @db.VarChar(255)
+  teamLogo      String?   @db.VarChar(255)
+  Drivers       Drivers[]
+}
+
+model Drivers {
+  driverId        String        @id @db.VarChar(50)
+  code            String?       @db.VarChar(10)
+  permanentNumber Int?
+  givenName       String?       @db.VarChar(100)
+  familyName      String?       @db.VarChar(100)
+  dateOfBirth     DateTime?     @db.Date
+  nationality     String?       @db.VarChar(50)
+  url             String?       @db.VarChar(255)
+  driverImage     String?       @db.VarChar(255)
+  constructorId   String?       @db.VarChar(50)
+  Bets            Bets[]
+  Constructors    Constructors? @relation(fields: [constructorId], references: [constructorId], onDelete: NoAction, onUpdate: NoAction)
+  Results         Results[]
+}
+
+model Races {
+  raceId      Int       @id @default(autoincrement())
+  season      String?   @db.VarChar(4)
+  round       Int?
+  raceName    String?   @db.VarChar(255)
+  circuitId   String?   @db.VarChar(255)
+  circuitName String?   @db.VarChar(255)
+  locality    String?   @db.VarChar(255)
+  country     String?   @db.VarChar(255)
+  date        DateTime? @db.Date
+  time        DateTime? @db.Time(6)
+  url         String?   @db.VarChar(255)
+  Bets        Bets[]
+  Results     Results[]
+}
+
+model Results {
+  resultId Int      @id @default(autoincrement())
+  raceId   Int?
+  driverId String?  @db.VarChar(50)
+  position Int
+  points   Int
+  Drivers  Drivers? @relation(fields: [driverId], references: [driverId], onDelete: NoAction, onUpdate: NoAction)
+  Races    Races?   @relation(fields: [raceId], references: [raceId], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model Users {
+  userId    Int       @id @default(autoincrement())
+  username  String    @unique @db.VarChar(255)
+  email     String    @unique @db.VarChar(255)
+  password  String    @db.VarChar(255)
+  balance   Decimal?  @default(0.00) @db.Decimal(10, 2)
+  createdAt DateTime? @default(now()) @db.Timestamp(6)
+  lastLogin DateTime? @db.Timestamptz(6)
+  country   String?   @db.VarChar(50)
+  userType  String?   @default("regular") @db.VarChar(10)
+  Bets      Bets[]
+}
