@@ -9,7 +9,7 @@
 
     <!-- Articles Page -->
     <url>
-        <loc>http://localhost:3000/articles</loc>
+        <loc>http://localhost:3000/news</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
@@ -33,7 +33,7 @@
 
     <!-- Bet Page -->
     <url>
-        <loc>http://localhost:3000/bet</loc>
+        <loc>http://localhost:3000/bets</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 

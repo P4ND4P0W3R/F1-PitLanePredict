@@ -1,19 +1,31 @@
 {
-  "name": "src",
+  "name": "f1_pit-lane-predict",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "A Formula One betting website",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/P4ND4P0W3R/S5M-AWP-Project.git"
+  },
+  "keywords": [
+    "Formula 1",
+    "F1",
+    "betting",
+    "sports",
+    "web app"
+  ],
+  "author": "Paul 'P4ND4 P0W3R' HU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/P4ND4P0W3R/S5M-AWP-Project/issues"
+  },
+  "homepage": "https://github.com/P4ND4P0W3R/S5M-AWP-Project#readme",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mysql2": "^3.6.3"
+    "mysql": "^2.18.1"
   }
 }
