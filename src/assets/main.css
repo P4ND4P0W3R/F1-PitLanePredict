@@ -1,0 +1,57 @@
+@import "./base.css";
+
+@font-face {
+  font-family: "F1Black";
+  src: url("@/assets/fonts/Formula1-Black.ttf");
+}
+
+@font-face {
+  font-family: "TittiliumWebRegular";
+  src: url("@/assets/fonts/TitilliumWeb-Regular.ttf");
+}
+
+@font-face {
+  font-family: F1;
+  src: url("@/assets/fonts/Formula1-Regular.ttf");
+}
+
+@font-face {
+  font-family: F1Bold;
+  src: url("@/assets/fonts/Formula1-Bold.ttf");
+}
+
+@font-face {
+  font-family: F1Wide;
+  src: url("@/assets/fonts/Formula1-Wide.ttf");
+}
+
+#app {
+  font-weight: normal;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 0 2rem;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  font-family: "TittiliumWebRegular";
+}
+
+h1 {
+  font-family: "F1Black";
+  font-size: 2.5rem;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "TittiliumWebRegular";
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
