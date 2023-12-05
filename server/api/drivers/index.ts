@@ -1,0 +1,42 @@
+import { db } from "../../prisma";
+
+export default defineEventHandler(async () => {
+    const data = await db.drivers.findMany(
+        {
+            include: {
+                Constructors: {
+                    select: {
+                        name: true,
+                    }
+                },
+                Results: {
+                    select: {
+                        points: true,
+                    }
+                }
+            }
+        }
+    );
+
+    console.log(data)
+
+    // Calculate the sum of points for each driver
+    const driversWithTotalPoints = data.map((driver) => ({
+        ...driver,
+        totalPoints: driver.Results.reduce((sum, result) => sum + (result.points || 0), 0),
+    }));
+
+    // Sort drivers by total points in descending order
+    driversWithTotalPoints.sort((a, b) => b.totalPoints - a.totalPoints);
+
+    const constructorsArray = driversWithTotalPoints.map((driver) => ({
+        ...driver,
+        constructor: driver.Constructors.name,
+    }));
+
+    return {
+        success: true,
+        message: "Successfully fetched drivers with total points and sorted by total points",
+        data: constructorsArray,
+    };
+});
