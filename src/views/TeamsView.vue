@@ -70,6 +70,8 @@ function getTeamCar(name: string): string {
     };
     return teamCars[name] || "url/to/default-flag.png";
 }
+
+
 </script>
 
 <template>

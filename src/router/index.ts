@@ -1,12 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import DriversView from '../views/DriversView.vue'
-import TeamsView from '../views/TeamsView.vue'
-import RacesView from '../views/RacesView.vue'
-import DriverDetails from '../views/DriverDetailsView.vue'
-import TeamDetails from '../views/TeamDetailsView.vue'
-import Login from '../views/LoginView.vue';
-import Register from '../views/RegisterView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,42 +6,42 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("../views/HomeView.vue")
     },
     {
       path: "/drivers",
       name: "drivers",
-      component: DriversView,
+      component: () => import("../views/DriversView.vue")
     },
     {
       path: "/teams",
       name: "teams",
-      component: TeamsView,
+      component: () => import("../views/TeamsView.vue")
     },
     {
       path: "/races",
       name: "races",
-      component: RacesView,
+      component: () => import("../views/RacesView.vue")
     },
     {
       path: '/driver/:driverId',
       name: 'driver-details',
-      component: DriverDetails,
+      component: () => import("../views/DriverDetailsView.vue")
     },
     {
       path: '/team/:constructorId',
       name: 'team-details',
-      component: TeamDetails,
+      component: () => import("../views/TeamDetailsView.vue")
     },
     {
       path: '/login',
       name: 'login',
-      component: Login,
+      component: () => import("../views/LoginView.vue"),
     },
     {
       path: '/register',
       name:'register',
-      component: Register,
+      component: () => import("../views/RegisterView.vue"),
     },
     {
       path: "/about",

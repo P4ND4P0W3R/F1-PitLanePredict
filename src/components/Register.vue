@@ -8,13 +8,13 @@ interface Body {
   password: string;
 }
 
-const username = ref("mateleo2@gmail.com");
-const email = ref("mateleo2@gmail.com");
-const password = ref("mateleo2@gmail.com");
+const username = ref("paul");
+const email = ref("paul@example.com");
+const password = ref("test");
 
 async function register() {
   try {
-    await axios.post<any, AxiosResponse, Body>("http://localhost:3000/api/register", {
+    await axios.post<any, AxiosResponse, Body>("http://localhost:3000/api/user/register", {
       email: email.value,
       password: password.value,
       username: username.value,

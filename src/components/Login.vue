@@ -2,18 +2,19 @@
 import { defineComponent, ref } from "vue";
 import axios from "axios";
 
-const username = ref(null)
-const password = ref(null)
+const username = ref("paul")
+const password = ref("test")
 
 
 async function login() {
   await axios
-    .post("http://localhost:3000/api/login", {
+    .post("http://localhost:3000/api/user/login", {
       username: username.value,
       password: password.value,
     })
     .then((response) => {
-      console.log(response.data.message);
+      console.log(response.data.status);
+      console.log(response.data.body);
       // Redirect or perform other actions on successful login
     })
     .catch((error) => {

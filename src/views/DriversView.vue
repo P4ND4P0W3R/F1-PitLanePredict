@@ -103,10 +103,50 @@ function getDriverNumber(permanentNumber: number): string {
   };
   return driverNumber[permanentNumber] || "url/to/default-driver-number.png";
 }
+
+import axios from "axios";
+
+const driverId = ref(null)
+const permanentNumber = ref(null)
+const givenName = ref(null)
+const familyName = ref(null)
+
+
+async function addCar() {
+  await axios
+    .post("http://localhost:3000/api/drivers/create", {
+      driverId: driverId.value,
+      permanentNumber: permanentNumber.value,
+      givenName: givenName.value,
+      familyName: familyName.value,
+    })
+    .then((response) => {
+      console.log(response.data.message);
+      // Redirect or perform other actions on successful login
+    })
+    .catch((error) => {
+      console.error("Login failed:", error.response.data.message);
+    });
+}
 </script>
 
 <template>
   <main>
+    <h2>Create driver</h2>
+    <form @submit.prevent="addCar">
+      <label for="driverId">Driver's ID:</label>
+      <input type="text" id="driverId" v-model="driverId" required />
+
+      <label for="permanentNumber">Driver's number:</label>
+      <input type="text" id="permanentNumber" v-model="permanentNumber" required />
+      <label for="givenName">Driver's given name:</label>
+      <input type="text" id="givenName" v-model="givenName" required />
+      <label for="familyName">Driver's family name:</label>
+      <input type="text" id="familyName" v-model="familyName" required />
+
+      <button type="submit">Create</button>
+    </form>
+
     <h1>F1 Drivers 2023</h1>
     <p class="description">
       Check out this season's official F1 line-up. Full breakdown of drivers, points and current positions. Follow your
@@ -130,20 +170,14 @@ function getDriverNumber(permanentNumber: number): string {
                 <span class="d-block f1-bold--s f1-color--carbonBlack">{{ driver.familyName }}</span>
               </div>
               <div class="country-flag">
-                <img
-                  :src="getNationalityFlag(driver.nationality)"
-                  alt="flag"
-                  style="display: block; max-height: 30px; width: auto"
-                />
+                <img :src="getNationalityFlag(driver.nationality)" alt="flag"
+                  style="display: block; max-height: 30px; width: auto" />
               </div>
             </div>
             <div class="listing">
               <div>
-                <img
-                  :src="getDriverNumber(driver.permanentNumber)"
-                  alt="number"
-                  style="display: block; max-height: 50px; width: auto"
-                />
+                <img :src="getDriverNumber(driver.permanentNumber)" alt="number"
+                  style="display: block; max-height: 50px; width: auto" />
               </div>
               <img :src="driver.driverImage" alt="driver" style="height: 200px; width: auto; border-radius: 10px" />
             </div>

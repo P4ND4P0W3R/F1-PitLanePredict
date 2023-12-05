@@ -123,6 +123,7 @@ function getTeamCar(name: string): string {
                             <td><a :href=team.url style="color: hsla(160, 100%, 37%, 1);">CLICK HERE</a></td>
                         </tr>
                     </table>
+                    <h1 class="d-block f1-bold--s f1-color--carbonBlack">Drivers</h1>
 
                     <div class="listing">
                         <div class="f1-uppercase driver-redirect" v-for="(driver, driverIndex) in team.Drivers.slice(0, 2)"
