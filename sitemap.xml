@@ -3,43 +3,43 @@
 
     <!-- Home Page -->
     <url>
-        <loc>http://localhost:3000/</loc>
+        <loc>http://localhost:5173/</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- Articles Page -->
     <url>
-        <loc>http://localhost:3000/news</loc>
+        <loc>http://localhost:5173/news</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- Races Page -->
     <url>
-        <loc>http://localhost:3000/races</loc>
+        <loc>http://localhost:5173/races</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- Teams Page -->
     <url>
-        <loc>http://localhost:3000/teams</loc>
+        <loc>http://localhost:5173/teams</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- Drivers Page -->
     <url>
-        <loc>http://localhost:3000/drivers</loc>
+        <loc>http://localhost:5173/drivers</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- Bet Page -->
     <url>
-        <loc>http://localhost:3000/bets</loc>
+        <loc>http://localhost:5173/bets</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 
     <!-- About Page -->
     <url>
-        <loc>http://localhost:3000/about</loc>
+        <loc>http://localhost:5173/about</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
 

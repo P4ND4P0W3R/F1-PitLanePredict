@@ -1,13 +1,12 @@
-# S5M-AWP-Project
+# F1 Pit Lane Predict
+
+#### *S5M - Advanced Web Programming - Project*
 
 This project has been realized by Paul "[P4ND4P0W3R](https://github.com/P4ND4P0W3R)" HU, Antoine "[AntoineD01](https://github.com/AntoineD01)" DUPONT and Alexandre "[AlexForex](https://github.com/AlexForex)" GUILLOIS .
 It has been realized during our 5th semester, the study abroad semester while at ESSCA in Budapest, Hungary.
 
 The topic of this project is a website that allows users to keep track of results during the 2023 F1 Championship. It isn't a complete website, but it is a good start for a project that could be continued in the future.
-
-## PandaVue
-
-This template should help get you started developing with Vue 3 in Vite.
+The focus of our project is to develop a dedicated online platform for Formula 1 fans, providing them with an opportunity to engage with the sport through a betting website. This platform aims to cater to the interests of Formula 1 fans and betting enthusiasts by creating a space where they can explore the sport in a unique manner.
 
 ## Recommended IDE Setup
 
@@ -36,7 +35,18 @@ npm install
 
 ### Compile and Hot-Reload for Development
 
+**Note:** You need to run both the client-side and server-side to have a fully working website.
+
+- Client-side:
+- 
 ```sh
+npm run dev
+```
+
+- Server-side:
+
+```sh
+cd server
 npm run dev
 ```
 
