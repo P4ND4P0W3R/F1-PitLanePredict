@@ -37,13 +37,13 @@ npm install
 
 **Note:** You need to run both the client-side and server-side to have a fully working website.
 
-- Client-side:
-- 
+Start Client-side:
+
 ```sh
 npm run dev
 ```
 
-- Server-side:
+Start Server-side:
 
 ```sh
 cd server
