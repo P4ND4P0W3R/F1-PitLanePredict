@@ -1,42 +1,50 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-interface Team {
-    constructorId: string;
-    name: string;
-    nationality: string;
+export interface Races {
+    raceId: number;
+    season: string;
+    round: number;
+    raceName: string;
+    circuitId: string;
+    circuitName: string;
+    locality: string;
+    country: string;
+    date: Date;
+    time: Date;
     url: string;
-    teamLogo: string;
-    Drivers: string;
-    totalPoints: number;
 }
 
-const teams = ref<null | Team[]>(null);
+const races = ref<null | Races[]>(null);
 
 async function fetchData() {
     try {
-        const response = await fetch("http://localhost:3000/api/teams");
+        const response = await fetch("http://localhost:3000/api/races");
         const data = await response.json();
-        teams.value = data.data.data;
+        races.value = data.data;
 
-        console.log(teams)
+        console.log(races)
     } catch (error) {
         console.error("Error fetching data:", error);
     }
 }
 
-fetchData();
+onMounted(() => {
+    document.title = "F1 Races 2023"
+    fetchData();
+});
 
 </script>
 
 <template>
     <main>
-        {{ teams }}
+        {{ races }}
         <h1>F1 Races 2023</h1>
         <p class="description">
             Discover everything you need to know about this year's Formula 1 races -
             winners, podiums, points repartition.
         </p>
+        
 
         <div class="container">
         </div>
