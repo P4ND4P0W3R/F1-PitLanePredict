@@ -11,8 +11,8 @@ interface Driver {
   nationality: string;
   url: string;
   driverImage: string;
-  constructorId: string;
-  constructor: string;
+  teamId: string;
+  team: string;
   totalPoints: number;
 }
 
@@ -181,7 +181,7 @@ async function addCar() {
               </div>
               <img :src="driver.driverImage" alt="driver" style="height: 200px; width: auto; border-radius: 10px" />
             </div>
-            <p class="listing-item--team f1--xxs f1-color--gray5">{{ driver.constructor }}</p>
+            <p class="listing-item--team f1--xxs f1-color--gray5">{{ driver.team }}</p>
           </div>
         </RouterLink>
       </div>

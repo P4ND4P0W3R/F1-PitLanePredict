@@ -16,11 +16,11 @@ CREATE TABLE
         )
     );
 
--- Constructors Table
+-- Teams Table
 
 CREATE TABLE
-    IF NOT EXISTS "Constructors" (
-        "constructorId" VARCHAR(50) PRIMARY KEY,
+    IF NOT EXISTS "Teams" (
+        "teamId" VARCHAR(50) PRIMARY KEY,
         name VARCHAR(100),
         nationality VARCHAR(50),
         url VARCHAR(255),
@@ -40,7 +40,7 @@ CREATE TABLE
         nationality VARCHAR(50),
         url VARCHAR(255),
         "driverImage" VARCHAR(255),
-        "constructorId" VARCHAR(50) REFERENCES "Constructors"("constructorId")
+        "teamId" VARCHAR(50) REFERENCES "Teams"("teamId")
     );
 
 -- Races Table
@@ -88,8 +88,8 @@ CREATE TABLE
     );
 
 INSERT INTO
-    "Constructors" (
-        "constructorId",
+    "Teams" (
+        "teamId",
         name,
         nationality,
         url,
@@ -168,7 +168,7 @@ INSERT INTO
         nationality,
         url,
         "driverImage",
-        "constructorId"
+        "teamId"
     )
 VALUES (
         'albon',

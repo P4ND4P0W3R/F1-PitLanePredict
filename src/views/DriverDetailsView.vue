@@ -12,8 +12,8 @@ interface Driver {
     nationality: string;
     url: string;
     driverImage: string;
-    constructorId: string;
-    constructor: string;
+    teamId: string;
+    team: string;
     totalPoints: number;
 }
 
@@ -123,20 +123,23 @@ function getDriverNumber(permanentNumber: number): string {
                     </div>
 
                     <div class="listing">
-                            <div class="f1-uppercase">
-                                <span class="d-block f1--xxs f1-color--carbonBlack">{{ driver.givenName }}</span>
-                                <span class="d-block f1-bold--s f1-color--carbonBlack">{{ driver.familyName }}</span>
-                            </div>
-                            <div class="country-flag">
-                                <img :src="getNationalityFlag(driver.nationality)" alt="flag"
-                                    style="display: block; max-height: 30px; width: auto;" />
-                            </div>
+                        <div class="f1-uppercase">
+                            <span class="d-block f1--xxs f1-color--carbonBlack">{{ driver.givenName }}</span>
+                            <span class="d-block f1-bold--s f1-color--carbonBlack">{{ driver.familyName }}</span>
                         </div>
+                        <div class="country-flag">
+                            <img :src="getNationalityFlag(driver.nationality)" alt="flag"
+                                style="display: block; max-height: 30px; width: auto;" />
+                        </div>
+                    </div>
 
                     <table>
                         <tr>
                             <th scope="row">Team</th>
-                            <td><RouterLink :to="'/team/' + driver.constructorId" tag="div" style="color: hsla(160, 100%, 37%, 1);">{{ driver.constructor }}</RouterLink></td>
+                            <td>
+                                <RouterLink :to="'/team/' + driver.teamId" tag="div"
+                                    style="color: hsla(160, 100%, 37%, 1);">{{ driver.team }}</RouterLink>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">Nationality</th>
@@ -161,7 +164,8 @@ function getDriverNumber(permanentNumber: number): string {
                             <img :src="getDriverNumber(driver.permanentNumber)" alt="number"
                                 style="display: block; max-height: 50px; width: auto;" />
                         </div>
-                        <img :src="driver.driverImage" alt="driver" style="height: 200px; width: auto; border-radius: 10px;" />
+                        <img :src="driver.driverImage" alt="driver"
+                            style="height: 200px; width: auto; border-radius: 10px;" />
                     </div>
                 </div>
             </div>
@@ -332,6 +336,5 @@ p,
 ul {
     margin-top: 0;
     margin-bottom: 20px;
-}
-</style>
+}</style>
 

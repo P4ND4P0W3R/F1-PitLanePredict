@@ -1,7 +1,7 @@
 import { db } from "../../prisma";
 
 export default defineEventHandler(async () => {
-    const data = await db.constructors.findMany(
+    const data = await db.teams.findMany(
         {
             include: {
                 Drivers: {
@@ -23,9 +23,9 @@ export default defineEventHandler(async () => {
 
     console.log(data);
 
-    // Calculate total points for each constructor
-    const constructorPoints = data.map((constructor) => {
-        const totalPoints = constructor.Drivers.reduce((sum, driver) => {
+    // Calculate total points for each team
+    const teamPoints = data.map((team) => {
+        const totalPoints = team.Drivers.reduce((sum, driver) => {
             return (
                 sum +
                 driver.Results.reduce((driverPoints, result) => {
@@ -35,10 +35,10 @@ export default defineEventHandler(async () => {
         }, 0);
 
         return {
-            ...constructor,
+            ...team,
             totalPoints: totalPoints,
         };
     });
 
-    return { data: constructorPoints };
+    return { data: teamPoints };
 });

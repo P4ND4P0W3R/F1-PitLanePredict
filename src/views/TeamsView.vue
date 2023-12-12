@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 
 interface Team {
-    constructorId: string;
+    teamId: string;
     name: string;
     nationality: string;
     url: string;
@@ -83,8 +83,8 @@ function getTeamCar(name: string): string {
         </p>
 
         <div class="container">
-            <div class="team" v-for="(team, index) in teams" :key="team.constructorId">
-                <RouterLink :to="'/team/' + team.constructorId" tag="div">
+            <div class="team" v-for="(team, index) in teams" :key="team.teamId">
+                <RouterLink :to="'/team/' + team.teamId" tag="div">
                     <div class="team-content">
                         <div class="listing">
                             <div class="rank">{{ index + 1 }}</div>

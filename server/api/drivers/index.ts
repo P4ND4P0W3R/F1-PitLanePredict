@@ -4,7 +4,7 @@ export default defineEventHandler(async () => {
     const data = await db.drivers.findMany(
         {
             include: {
-                Constructors: {
+                Teams: {
                     select: {
                         name: true,
                     }
@@ -29,14 +29,14 @@ export default defineEventHandler(async () => {
     // Sort drivers by total points in descending order
     driversWithTotalPoints.sort((a, b) => b.totalPoints - a.totalPoints);
 
-    const constructorsArray = driversWithTotalPoints.map((driver) => ({
+    const teamsArray = driversWithTotalPoints.map((driver) => ({
         ...driver,
-        constructor: driver.Constructors.name,
+        team: driver.Teams.name,
     }));
 
     return {
         success: true,
         message: "Successfully fetched drivers with total points and sorted by total points",
-        data: constructorsArray,
+        data: teamsArray,
     };
 });

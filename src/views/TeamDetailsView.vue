@@ -3,7 +3,7 @@ import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
 interface Team {
-    constructorId: string;
+    teamId: string;
     name: string;
     nationality: string;
     url: string;
@@ -33,9 +33,9 @@ async function fetchData() {
         const response = await fetch("http://localhost:3000/api/teams");
         const data = await response.json();
         console.log(data)
-        const constructorId = route.params.constructorId;
-        console.log(constructorId);
-        teams.value = data.data.filter((team: Team) => team.constructorId === constructorId);
+        const teamId = route.params.teamId;
+        console.log(teamId);
+        teams.value = data.data.filter((team: Team) => team.teamId === teamId);
 
         if (teams.value && teams.value.length > 0) {
             name.value = teams.value[0].name;
@@ -94,7 +94,7 @@ function getTeamCar(name: string): string {
         </p>
 
         <div class="container">
-            <div class="team" v-for="(team, index) in teams" :key="team.constructorId">
+            <div class="team" v-for="(team, index) in teams" :key="team.teamId">
                 <div class="team-content">
                     <div class="listing">
                         <div class="rank">{{ index + 1 }}</div>
@@ -215,7 +215,7 @@ a {
 
 }
 
-.driver-redirect:hover{
+.driver-redirect:hover {
     border-top-right-radius: 10px;
     border-color: hsla(160, 100%, 37%, 1);
 
