@@ -2,22 +2,23 @@
 
 ## *S5M - Advanced Web Programming - Project*
 
-This project has been realized by Paul ["P4ND4P0W3R"](https://github.com/P4ND4P0W3R) HU, Antoine ["AntoineD01"](https://github.com/AntoineD01) DUPONT and Alexandre ["AlexForex"](https://github.com/AlexForex) GUILLOIS .
+This project has been realized by Paul ["P4ND4P0W3R"](https://github.com/P4ND4P0W3R) HU, Antoine ["AntoineD01"](https://github.com/AntoineD01) DUPONT and Alexandre ["AlexForex"](https://github.com/AlexForex) GUILLOIS.
 It has been realized during our 5th semester, the study abroad semester while at ESSCA in Budapest, Hungary.
+
+We (Paul and Antoine) have been fans of Formula 1 for years and we just started to introduce Alexandre to this wonderful sport and universe. As big fans of Formula 1 since multiple years, we decided to create a project dedicated to this sport.
 
 The topic of this project is a website that allows users to keep track of results during the 2023 F1 Championship. It isn't a complete website, but it is a good start for a project that could be continued in the future.
 The focus of our project is to develop a dedicated online platform for Formula 1 fans, providing them with an opportunity to engage with the sport through a betting website. This platform aims to cater to the interests of Formula 1 fans and betting enthusiasts by creating a space where they can explore the sport in a unique manner.
 
-## UML Diagrams
+*NOTE: <u>This project has been realized in parallel with the UML Project. To access this project, please see the directory</u> [UML](UML/) <u>and read the</u> [README.md](UML/README.md) <u>file for more information.</u>*
 
-To access the UML diagrams, please see the directory [UML](UML/).
-You will be able to see what UML diagrams are available by reading the [README.md](UML/README.md) file.
+## The code
 
-## Recommended IDE Setup
+### Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+### Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
@@ -28,17 +29,17 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## Customize configuration
+### Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+### Project Setup
 
 ```sh
 npm install
 ```
 
-## Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Development
 
 **Note:** You need to run both the client-side and server-side to have a fully working website.
 
@@ -55,7 +56,7 @@ cd server
 npm run dev
 ```
 
-## Type-Check, Compile and Minify for Production
+### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build

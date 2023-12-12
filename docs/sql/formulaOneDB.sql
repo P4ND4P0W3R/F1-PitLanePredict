@@ -437,7 +437,7 @@ VALUES (
         'Bahrain',
         '2023-03-05',
         '15:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Bahrain_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Bahrain_Grand_Prix'
     ), (
         '2023',
         2,
@@ -448,7 +448,7 @@ VALUES (
         'Saudi Arabia',
         '2023-03-19',
         '17:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Saudi_Arabian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Saudi_Arabian_Grand_Prix'
     ), (
         '2023',
         3,
@@ -459,7 +459,7 @@ VALUES (
         'Australia',
         '2023-04-02',
         '05:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Australian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Australian_Grand_Prix'
     ), (
         '2023',
         4,
@@ -470,7 +470,7 @@ VALUES (
         'Azerbaijan',
         '2023-04-30',
         '11:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Azerbaijan_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Azerbaijan_Grand_Prix'
     ), (
         '2023',
         5,
@@ -481,7 +481,7 @@ VALUES (
         'USA',
         '2023-05-07',
         '19:30:00',
-        'httpss://en.wikipedia.org/wiki/2023_Miami_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Miami_Grand_Prix'
     ), (
         '2023',
         6,
@@ -492,7 +492,7 @@ VALUES (
         'Monaco',
         '2023-05-28',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Monaco_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Monaco_Grand_Prix'
     ), (
         '2023',
         7,
@@ -503,7 +503,7 @@ VALUES (
         'Spain',
         '2023-06-04',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Spanish_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Spanish_Grand_Prix'
     ), (
         '2023',
         8,
@@ -514,7 +514,7 @@ VALUES (
         'Canada',
         '2023-06-18',
         '18:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Canadian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Canadian_Grand_Prix'
     ), (
         '2023',
         9,
@@ -525,7 +525,7 @@ VALUES (
         'Austria',
         '2023-07-02',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Austrian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Austrian_Grand_Prix'
     ), (
         '2023',
         10,
@@ -536,7 +536,7 @@ VALUES (
         'UK',
         '2023-07-09',
         '14:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_British_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_British_Grand_Prix'
     ), (
         '2023',
         11,
@@ -547,7 +547,7 @@ VALUES (
         'Hungary',
         '2023-07-23',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Hungarian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Hungarian_Grand_Prix'
     ), (
         '2023',
         12,
@@ -558,7 +558,7 @@ VALUES (
         'Belgium',
         '2023-07-30',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Belgian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Belgian_Grand_Prix'
     ), (
         '2023',
         13,
@@ -569,7 +569,7 @@ VALUES (
         'Netherlands',
         '2023-08-27',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Dutch_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Dutch_Grand_Prix'
     ), (
         '2023',
         14,
@@ -580,7 +580,7 @@ VALUES (
         'Italy',
         '2023-09-03',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Italian_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Italian_Grand_Prix'
     ), (
         '2023',
         15,
@@ -591,7 +591,7 @@ VALUES (
         'Singapore',
         '2023-09-17',
         '12:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Singapore_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Singapore_Grand_Prix'
     ), (
         '2023',
         16,
@@ -602,7 +602,7 @@ VALUES (
         'Japan',
         '2023-09-24',
         '05:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Japanese_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Japanese_Grand_Prix'
     ), (
         '2023',
         17,
@@ -613,7 +613,7 @@ VALUES (
         'Qatar',
         '2023-10-08',
         '17:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Qatar_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Qatar_Grand_Prix'
     ), (
         '2023',
         18,
@@ -624,7 +624,7 @@ VALUES (
         'USA',
         '2023-10-22',
         '19:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_United_States_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_United_States_Grand_Prix'
     ), (
         '2023',
         19,
@@ -635,7 +635,7 @@ VALUES (
         'Mexico',
         '2023-10-29',
         '20:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Mexico_City_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Mexico_City_Grand_Prix'
     ), (
         '2023',
         20,
@@ -646,7 +646,7 @@ VALUES (
         'Brazil',
         '2023-11-05',
         '17:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_S%C3%A3o_Paulo_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_S%C3%A3o_Paulo_Grand_Prix'
     ), (
         '2023',
         21,
@@ -657,7 +657,7 @@ VALUES (
         'United States',
         '2023-11-19',
         '06:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Las_Vegas_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Las_Vegas_Grand_Prix'
     ), (
         '2023',
         22,
@@ -668,7 +668,7 @@ VALUES (
         'UAE',
         '2023-11-26',
         '13:00:00',
-        'httpss://en.wikipedia.org/wiki/2023_Abu_Dhabi_Grand_Prix'
+        'https://en.wikipedia.org/wiki/2023_Abu_Dhabi_Grand_Prix'
     );
 
 INSERT INTO
