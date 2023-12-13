@@ -10,7 +10,7 @@ We (Paul and Antoine) have been fans of Formula 1 for years and we just started 
 The topic of this project is a website that allows users to keep track of results during the 2023 F1 Championship. It isn't a complete website, but it is a good start for a project that could be continued in the future.
 The focus of our project is to develop a dedicated online platform for Formula 1 fans, providing them with an opportunity to engage with the sport through a betting website. This platform aims to cater to the interests of Formula 1 fans and betting enthusiasts by creating a space where they can explore the sport in a unique manner.
 
-*NOTE: This project has been realized in parallel with the UML Project. To access this project, please see the directory [UML](docs/UML/) and read the [README.md](docs/UML/README.md) file for more information.*
+*<Ins> NOTE: This project has been realized in parallel with the UML Project. To access this project, please see the directory</ins> [UML](docs/UML/) <ins>and read the</ins> [README.md](docs/UML/README.md) <ins>file for more information.</ins>*
 
 ## The code
 
