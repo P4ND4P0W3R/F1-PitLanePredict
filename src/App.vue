@@ -28,7 +28,7 @@ import { RouterLink, RouterView } from "vue-router";
         <h2>Contact</h2>
         <p>
           Email:
-          <a href="mailto:f1-pitlane-predict@example.com">f1-pitlane-predict@example.com</a>
+          <a href="mailto:contact@f1-pit-lane-predict.com">contact@f1-pit-lane-predict.com</a>
         </p>
       </div>
 

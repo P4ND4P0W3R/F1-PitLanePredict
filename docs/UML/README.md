@@ -8,7 +8,7 @@
 
 ### At the beginning
 
-- [x] [ER + table structure diagram](Diagrams/ER%20+%20table%20structure%20diagram/) for the database
+- [x] [ER + table structure diagram](Diagrams/ER%20+%20table%20structure%20diagrams/) for the database
 - [ ] [Gantt diagram (planned)](Diagrams/Gantt%20diagrams/)
 
 ### Minimum one diagram per member
@@ -23,4 +23,4 @@
 ### At the very end
 
 - [ ] [Gantt diagram (actual, signaling who worked where)](Diagrams/Gantt%20diagrams/)
-- [ ] [Class diagram](Diagrams/Class%20diagrams/) (can be auto-generated + class relations added manually ... From JS code, auto-generation is tricky ... )
+- [ ] [Class diagram](Diagrams/Class%20diagram/) (can be auto-generated + class relations added manually ... From JS code, auto-generation is tricky ... )
