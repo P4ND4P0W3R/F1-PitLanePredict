@@ -2,7 +2,7 @@
 
 ## In this directory, you will find the [UML project report](https://github.com/P4ND4P0W3R/S5M-AWP-Project/blob/8c08b94368dd3feb76883029afb6991f950908f4/UML/UML%20Homework%202%20-%20Paul%20HU,%20Antoine%20DUPONT%20&%20Alexandre%20GUILLOIS.pdf) as well as all the [UML diagrams](Diagrams/) that we have created for this project respecting the following list of requirements
 
-*EACH FILE STARTS WITH "[XX]" IT CORRESPONDS TO THE AUTHORS INITIALS<br>[PH] = Paul HU, [AD] = Antoine DUPONT, [AG] = Alexandre GUILLOIS*
+*<u>EACH FILE</u> <ins>STARTS WITH</ins> "[XX]" IT CORRESPONDS TO THE AUTHORS INITIALS<br>[PH] = Paul HU, [AD] = Antoine DUPONT, [AG] = Alexandre GUILLOIS*
 
 ## Required Project Diagrams
 
