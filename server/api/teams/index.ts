@@ -21,8 +21,6 @@ export default defineEventHandler(async () => {
         }
     );
 
-    console.log(data);
-
     // Calculate total points for each team
     const teamPoints = data.map((team) => {
         const totalPoints = team.Drivers.reduce((sum, driver) => {

@@ -1,5 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+
+async function logout() {
+  localStorage.removeItem('token');
+  router.push('/login');
+  console.log("Logged out")
+  alert("You have been logged out");
+}
+
 </script>
 
 <template>
@@ -16,6 +27,7 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/register">Register</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
+        <button @click="logout">Logout</button>
       </nav>
     </div>
   </header>
@@ -128,5 +140,13 @@ footer {
   flex-direction: column;
   justify-content: center;
   margin: auto;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: "TittiliumWebRegular";
+  color: hsla(160, 100%, 37%, 1);
 }
 </style>

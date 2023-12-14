@@ -18,8 +18,6 @@ export default defineEventHandler(async () => {
         }
     );
 
-    console.log(data)
-
     // Calculate the sum of points for each driver
     const driversWithTotalPoints = data.map((driver) => ({
         ...driver,

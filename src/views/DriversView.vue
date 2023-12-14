@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 interface Driver {
   driverId: string;
@@ -27,10 +28,13 @@ async function fetchData() {
     console.error("Error fetching data:", error);
   }
 }
+const isAuthenticated = ref(false);
 
 onMounted(() => {
   document.title = "F1 Drivers 2023";
   fetchData();
+  const token = localStorage.getItem('token');
+  isAuthenticated.value = !!token; // Set to true if token exists
 });
 
 function formatDate(dateString: string): string {
@@ -111,41 +115,18 @@ const permanentNumber = ref(null)
 const givenName = ref(null)
 const familyName = ref(null)
 
+const router = useRouter();
 
-async function addCar() {
-  await axios
-    .post("http://localhost:3000/api/drivers/create", {
-      driverId: driverId.value,
-      permanentNumber: permanentNumber.value,
-      givenName: givenName.value,
-      familyName: familyName.value,
-    })
-    .then((response) => {
-      console.log(response.data.message);
-      // Redirect or perform other actions on successful login
-    })
-    .catch((error) => {
-      console.error("Login failed:", error.response.data.message);
-    });
-}
+const redirectToCreateDriver = () => {
+  // Redirect the user to the create driver page using Vue Router
+  router.push('/create-driver');
+};
+
 </script>
 
 <template>
   <main>
-    <h2>Create driver</h2>
-    <form @submit.prevent="addCar">
-      <label for="driverId">Driver's ID:</label>
-      <input type="text" id="driverId" v-model="driverId" required />
-
-      <label for="permanentNumber">Driver's number:</label>
-      <input type="text" id="permanentNumber" v-model="permanentNumber" required />
-      <label for="givenName">Driver's given name:</label>
-      <input type="text" id="givenName" v-model="givenName" required />
-      <label for="familyName">Driver's family name:</label>
-      <input type="text" id="familyName" v-model="familyName" required />
-
-      <button type="submit">Create</button>
-    </form>
+    <button @click="redirectToCreateDriver" v-if="isAuthenticated">Create Driver</button>
 
     <h1>F1 Drivers 2023</h1>
     <p class="description">
@@ -337,5 +318,20 @@ p,
 ul {
   margin-top: 0;
   margin-bottom: 20px;
+}
+
+button {
+    background-color: #e10600;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ba0400;
 }
 </style>

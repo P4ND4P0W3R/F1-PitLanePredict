@@ -1,5 +1,6 @@
 import { db } from "../../prisma";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export default defineEventHandler(async event => {
     if (event.method === "OPTIONS") {
@@ -31,9 +32,12 @@ export default defineEventHandler(async event => {
         }
     }
 
+    const secretKey = 'Z8YXC8GW!3rc'
+    const token = jwt.sign({ userId: users.userId, username: users.username, userType: users.userType }, secretKey, { expiresIn: '1h' });
+
     return {
         status: 200,
-        body: JSON.stringify({ message: 'Login successful' }),
+        body: JSON.stringify({ message: 'Login successful', token: token, user: users.username, userType: users.userType}),
     }
 })
 

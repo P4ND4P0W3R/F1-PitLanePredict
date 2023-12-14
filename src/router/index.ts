@@ -60,8 +60,15 @@ const router = createRouter({
       path: '/:catchAll(.*)',
       name: 'not-found',
       component: () => import('../views/NotFoundView.vue'),
-    }
-
+    },
+    {
+      path: '/create-driver',
+      name: 'CreateDriver',
+      component: () => import('../views/CreateDriverForm.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
   ],
 });
 

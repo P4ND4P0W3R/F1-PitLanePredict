@@ -1,5 +1,6 @@
 import { db } from "../../prisma";
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 export default defineEventHandler(async (event) => {
   if (event.method === "OPTIONS") {
@@ -12,7 +13,7 @@ export default defineEventHandler(async (event) => {
 
   const { username, email, password } = body;
 
-  const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 12);
 
   const users = await db.users.create({
     data: {
