@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 interface Team {
     teamId: string;
@@ -34,9 +35,13 @@ async function fetchData() {
     }
 }
 
+const isAuthenticated = ref(false);
+
 onMounted(() => {
     document.title = "F1 Teams 2023";
     fetchData();
+    const token = localStorage.getItem('token');
+    isAuthenticated.value = !!token; // Set to true if token exists
 });
 
 function getTeamLogo(name: string): string {
@@ -51,6 +56,7 @@ function getTeamLogo(name: string): string {
         "AlphaTauri": "https://media.formula1.com/content/dam/fom-website/teams/2023/alphatauri-logo.png.transform/2col-retina/image.png",
         "Alfa Romeo": "https://media.formula1.com/content/dam/fom-website/teams/2023/alfa-romeo-logo.png.transform/2col-retina/image.png",
         "Haas F1 Team": "https://media.formula1.com/content/dam/fom-website/teams/2023/haas-f1-team-logo.png.transform/2col-retina/image.png",
+        "Brawn GP": "https://upload.wikimedia.org/wikipedia/commons/2/24/Brawn_GP_logo.svg",
     };
     return teamLogos[name] || "url/to/default-flag.png";
 }
@@ -67,15 +73,38 @@ function getTeamCar(name: string): string {
         "AlphaTauri": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2023/alphatauri.png.transform/4col-retina/image.png",
         "Alfa Romeo": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2023/alfa-romeo.png.transform/4col-retina/image.png",
         "Haas F1 Team": "https://media.formula1.com/d_team_car_fallback_image.png/content/dam/fom-website/teams/2023/haas-f1-team.png.transform/4col-retina/image.png",
+        "Brawn GP": "https://upload.wikimedia.org/wikipedia/commons/2/24/Brawn_GP_logo.svg",
     };
     return teamCars[name] || "url/to/default-flag.png";
 }
 
+const router = useRouter();
+
+const redirectToCreateTeam = () => {
+    // Redirect the user to the create driver page using Vue Router
+    router.push('/create-team');
+};
+
+const redirectToDeleteTeam = () => {
+    // Redirect the user to the delete driver page using Vue Router
+    router.push('/delete-team');
+};
+
+const redirectToUpdateTeam = () => {
+    // Redirect the user to the delete driver page using Vue Router
+    router.push('/update-team');
+};
 
 </script>
 
 <template>
     <main>
+        <div class="listing" v-if="isAuthenticated">
+            <button @click="redirectToCreateTeam">Create Team</button>
+            <button @click="redirectToUpdateTeam">Update Team</button>
+            <button @click="redirectToDeleteTeam">Delete Team</button>
+        </div>
+
         <h1>F1 Teams 2023</h1>
         <p class="description">
             Discover everything you need to know about this year's Formula 1 teams - drivers, podium finishes, points earned
@@ -270,5 +299,20 @@ p,
 ul {
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+button {
+    background-color: #e10600;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ba0400;
 }
 </style>

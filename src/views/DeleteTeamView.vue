@@ -6,12 +6,12 @@ import axios from "axios";
 const isAuthenticated = ref(false);
 
 onMounted(() => {
-    document.title = "Delete F1 Driver 2023";
+    document.title = "Delete F1 Team 2023";
     const token = localStorage.getItem('token');
     isAuthenticated.value = !!token; // Set to true if token exists
 });
 
-const driverId = ref("schumacher")
+const teamId = ref("brawn_gp")
 const router = useRouter();
 
 async function deleteDriver() {
@@ -29,8 +29,8 @@ async function deleteDriver() {
     }
 
     await axios
-        .post("http://localhost:3000/api/drivers/delete", {
-            driverId: driverId.value,
+        .post("http://localhost:3000/api/teams/delete", {
+            teamId: teamId.value,
             token: token,
         })
         .then((response) => {
@@ -41,10 +41,10 @@ async function deleteDriver() {
                 alert("You are not authorized to perform this action.");
             }
             else if (response.data.status === 200) {
-                alert("Driver deleted successfully.");
-                router.push('/drivers');
+                alert("Team deleted successfully.");
+                router.push('/teams');
             } else if (response.data.status === 401) {
-                alert("There is no such driver.");
+                alert("There is no such team.");
             }
         })
 }
@@ -53,11 +53,11 @@ async function deleteDriver() {
 
 <template>
     <div v-if="isAuthenticated" class="form-container">
-        <h1>Delete driver</h1>
+        <h1>Delete team</h1>
         <form @submit.prevent="deleteDriver" class="driver-form">
-            <label for="driverId">Driver's ID:</label>
-                <input type="text" id="driverId" v-model="driverId" required />
-                <button type="submit">Delete</button>
+            <label for="teamId">Team's ID:</label>
+            <input type="text" id="teamId" v-model="teamId" required />
+            <button type="submit">Delete</button>
         </form>
     </div>
 </template>

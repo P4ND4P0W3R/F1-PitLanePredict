@@ -6,15 +6,19 @@ import axios from "axios";
 const isAuthenticated = ref(false);
 
 onMounted(() => {
-    document.title = "Delete F1 Driver 2023";
+    document.title = "Create F1 Team 2023";
     const token = localStorage.getItem('token');
     isAuthenticated.value = !!token; // Set to true if token exists
 });
 
-const driverId = ref("schumacher")
+const teamId = ref("brawn_gp")
+const name = ref("Brawn GP")
+const nationality = ref("English")
+const url = ref("https://en.wikipedia.org/wiki/Brawn_GP")
+const teamLogo = ref("https://en.wikipedia.org/wiki/File:Brawn_GP_logo.svg")
 const router = useRouter();
 
-async function deleteDriver() {
+async function addDriver() {
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -29,8 +33,12 @@ async function deleteDriver() {
     }
 
     await axios
-        .post("http://localhost:3000/api/drivers/delete", {
-            driverId: driverId.value,
+        .post("http://localhost:3000/api/teams/create", {
+            teamId: teamId.value,
+            name: name.value,
+            nationality: nationality.value,
+            url: url.value,
+            teamLogo: teamLogo.value,
             token: token,
         })
         .then((response) => {
@@ -41,23 +49,31 @@ async function deleteDriver() {
                 alert("You are not authorized to perform this action.");
             }
             else if (response.data.status === 200) {
-                alert("Driver deleted successfully.");
-                router.push('/drivers');
+                alert("Team created successfully.");
+                router.push('/teams');
             } else if (response.data.status === 401) {
-                alert("There is no such driver.");
+                alert("Your session has expired, please log in again.");
+                router.push('/login');
             }
         })
 }
-
 </script>
 
 <template>
     <div v-if="isAuthenticated" class="form-container">
-        <h1>Delete driver</h1>
-        <form @submit.prevent="deleteDriver" class="driver-form">
-            <label for="driverId">Driver's ID:</label>
-                <input type="text" id="driverId" v-model="driverId" required />
-                <button type="submit">Delete</button>
+        <h1>Create team</h1>
+        <form @submit.prevent="addDriver" class="driver-form">
+            <label for="teamId">Team ID:</label>
+            <input type="text" id="teamId" v-model="teamId" required />
+            <label for="name">Team name:</label>
+            <input type="text" id="name" v-model="name" required />
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" v-model="nationality" required />
+            <label for="url">URL:</label>
+            <input type="text" id="url" v-model="url" required />
+            <label for="teamLogo">Team logo:</label>
+            <input type="text" id="teamLogo" v-model="teamLogo" required />
+            <button type="submit">Create</button>
         </form>
     </div>
 </template>

@@ -64,7 +64,7 @@ const router = createRouter({
     {
       path: '/create-driver',
       name: 'create-driver',
-      component: () => import('../views/CreateDriverForm.vue'),
+      component: () => import('../views/CreateDriverView.vue'),
       meta: {
         requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
       },
@@ -81,6 +81,30 @@ const router = createRouter({
       path: '/update-driver',
       name: 'update-driver',
       component: () => import('../views/UpdateDriverView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/create-team',
+      name: 'create-team',
+      component: () => import('../views/CreateTeamView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/delete-team',
+      name: 'delete-team',
+      component: () => import('../views/DeleteTeamView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/update-team',
+      name: 'update-team',
+      component: () => import('../views/UpdateTeamView.vue'),
       meta: {
         requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
       },

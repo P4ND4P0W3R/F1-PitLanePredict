@@ -6,7 +6,7 @@ import axios from "axios";
 const isAuthenticated = ref(false);
 
 onMounted(() => {
-    document.title = "Create F1 Drivers 2023";
+    document.title = "Create F1 Driver 2023";
     const token = localStorage.getItem('token');
     isAuthenticated.value = !!token; // Set to true if token exists
 });

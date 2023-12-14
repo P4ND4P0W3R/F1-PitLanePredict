@@ -11,17 +11,12 @@ onMounted(() => {
     isAuthenticated.value = !!token; // Set to true if token exists
 });
 
-const oldDriverId = ref("schumacher")
-const newDriverId = ref("schumacher")
-const code = ref("HAM")
-const permanentNumber = ref(44)
-const givenName = ref("Lewis")
-const familyName = ref("Hamilton")
-const dateOfBirth = ref("1985-01-07T00:00:00.000Z")
-const nationality = ref("British")
-const url = ref("https://en.wikipedia.org/wiki/Lewis_Hamilton")
-const driverImage = ref("https://media.formula1.com/content/dam/fom-website/drivers/2023Drivers/hamilton.jpg.img.1920.medium.jpg/1677069594164.jpg")
-const teamId = ref("mercedes")
+const oldTeamId = ref("brawn_gp")
+const newTeamId = ref("brawn_gp")
+const name = ref("Brawn GP")
+const nationality = ref("English")
+const url = ref("https://en.wikipedia.org/wiki/Brawn_GP")
+const teamLogo = ref("https://en.wikipedia.org/wiki/File:Brawn_GP_logo.svg")
 const router = useRouter();
 
 async function addDriver() {
@@ -39,18 +34,13 @@ async function addDriver() {
     }
 
     await axios
-        .post("http://localhost:3000/api/drivers/update", {
-            oldDriverId: oldDriverId.value,
-            newDriverId: newDriverId.value,
-            code: code.value,
-            permanentNumber: permanentNumber.value,
-            givenName: givenName.value,
-            familyName: familyName.value,
-            dateOfBirth: dateOfBirth.value,
+        .post("http://localhost:3000/api/teams/update", {
+            oldTeamId: oldTeamId.value,
+            newTeamId: newTeamId.value,
+            name: name.value,
             nationality: nationality.value,
             url: url.value,
-            driverImage: driverImage.value,
-            teamId: teamId.value,
+            teamLogo: teamLogo.value,
             token: token,
         })
         .then((response) => {
@@ -61,8 +51,8 @@ async function addDriver() {
                 alert("You are not authorized to perform this action.");
             }
             else if (response.data.status === 200) {
-                alert("Driver updated successfully.");
-                router.push('/drivers');
+                alert("Team updated successfully.");
+                router.push('/teams');
             } else if (response.data.status === 401) {
                 alert("Your session has expired, please log in again.");
                 router.push('/login');
@@ -73,35 +63,25 @@ async function addDriver() {
 
 <template>
     <div v-if="isAuthenticated" class="form-container">
-        <h1>Update driver</h1>
+        <h1>Update team</h1>
         <form @submit.prevent="addDriver" class="driver-form">
             <section class="driver-to-update">
-                <h2>Driver to update</h2>
-                <label for="oldDriverId">Driver's ID:</label>
-                <input type="text" id="oldDriverId" v-model="oldDriverId" required />
+                <h2>Team to update</h2>
+                <label for="oldTeamId">Team's ID:</label>
+                <input type="text" id="oldTeamId" v-model="oldTeamId" required />
             </section>
             <section class="driver-new-info">
-                <h2>Driver's new information</h2>
-                <label for="newDriverId">Driver's ID:</label>
-                <input type="text" id="newDriverId" v-model="newDriverId" required />
-                <label for="code">Driver's number:</label>
-                <input type="text" id="code" v-model="code" required />
-                <label for="permanentNumber">Driver's number:</label>
-                <input type="text" id="permanentNumber" v-model="permanentNumber" required />
-                <label for="givenName">Driver's given name:</label>
-                <input type="text" id="givenName" v-model="givenName" required />
-                <label for="familyName">Driver's family name:</label>
-                <input type="text" id="familyName" v-model="familyName" required />
-                <label for="dateOfBirth">Driver's date of birth:</label>
-                <input type="text" id="dateOfBirth" v-model="dateOfBirth" required />
+                <h2>Team's new information</h2>
+                <label for="newTeamId">Team ID:</label>
+                <input type="text" id="newTeamId" v-model="newTeamId" required />
+                <label for="name">Team name:</label>
+                <input type="text" id="name" v-model="name" required />
                 <label for="nationality">Nationality:</label>
                 <input type="text" id="nationality" v-model="nationality" required />
                 <label for="url">URL:</label>
                 <input type="text" id="url" v-model="url" required />
-                <label for="driverImage">Driver's image:</label>
-                <input type="text" id="driverImage" v-model="driverImage" required />
-                <label for="teamId">Team ID:</label>
-                <input type="text" id="teamId" v-model="teamId" required />
+                <label for="teamLogo">Team logo:</label>
+                <input type="text" id="teamLogo" v-model="teamLogo" required />
             </section>
             <button type="submit">Update</button>
         </form>
