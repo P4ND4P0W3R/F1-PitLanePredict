@@ -108,13 +108,6 @@ function getDriverNumber(permanentNumber: number): string {
   return driverNumber[permanentNumber] || "url/to/default-driver-number.png";
 }
 
-import axios from "axios";
-
-const driverId = ref(null)
-const permanentNumber = ref(null)
-const givenName = ref(null)
-const familyName = ref(null)
-
 const router = useRouter();
 
 const redirectToCreateDriver = () => {
@@ -122,11 +115,24 @@ const redirectToCreateDriver = () => {
   router.push('/create-driver');
 };
 
+const redirectToDeleteDriver = () => {
+  // Redirect the user to the delete driver page using Vue Router
+  router.push('/delete-driver');
+};
+
+const redirectToUpdateDriver = () => {
+  // Redirect the user to the delete driver page using Vue Router
+  router.push('/update-driver');
+};
 </script>
 
 <template>
   <main>
+    <div class="listing">
     <button @click="redirectToCreateDriver" v-if="isAuthenticated">Create Driver</button>
+    <button @click="redirectToUpdateDriver" v-if="isAuthenticated">Update Driver</button>
+    <button @click="redirectToDeleteDriver" v-if="isAuthenticated">Delete Driver</button>
+    </div>
 
     <h1>F1 Drivers 2023</h1>
     <p class="description">

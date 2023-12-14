@@ -63,8 +63,24 @@ const router = createRouter({
     },
     {
       path: '/create-driver',
-      name: 'CreateDriver',
+      name: 'create-driver',
       component: () => import('../views/CreateDriverForm.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/delete-driver',
+      name: 'delete-driver',
+      component: () => import('../views/DeleteDriverView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/update-driver',
+      name: 'update-driver',
+      component: () => import('../views/UpdateDriverView.vue'),
       meta: {
         requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
       },
