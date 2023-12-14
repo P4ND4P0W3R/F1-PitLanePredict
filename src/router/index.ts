@@ -109,6 +109,30 @@ const router = createRouter({
         requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
       },
     },
+    {
+      path: '/create-race',
+      name: 'create-race',
+      component: () => import('../views/CreateRaceView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/delete-race',
+      name: 'delete-race',
+      component: () => import('../views/DeleteRaceView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
+    {
+      path: '/update-race',
+      name: 'update-race',
+      component: () => import('../views/UpdateRaceView.vue'),
+      meta: {
+        requiresAuth: true, // Optional: You can use this meta field to check authentication before displaying the form
+      },
+    },
   ],
 });
 

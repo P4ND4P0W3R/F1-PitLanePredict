@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 export interface Races {
     raceId: number;
@@ -29,9 +30,13 @@ async function fetchData() {
     }
 }
 
+const isAuthenticated = ref(false);
+
 onMounted(() => {
     document.title = "F1 Races 2023"
     fetchData();
+    const token = localStorage.getItem('token');
+    isAuthenticated.value = !!token; // Set to true if token exists
 });
 
 function formatDate(dateString: string): string {
@@ -96,15 +101,38 @@ function getCircuit(locality: string): string {
         "Mexico City": "https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Mexico%20carbon.png.transform/4col-retina/image.png",
         "São Paulo": "https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Brazil%20carbon.png.transform/4col-retina/image.png",
         "Las Vegas": "https://media.formula1.com/image/upload/f_auto/q_auto/v1677249931/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Las%20Vegas%20carbon.png.transform/4col-retina/image.png",
-        "Abu Dhabi": "https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Abu%20Dhab%20carbon.png.transform/4col-retina/image.png"
+        "Abu Dhabi": "https://media.formula1.com/image/upload/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Abu%20Dhab%20carbon.png.transform/4col-retina/image.png",
+        "Imola": "https://media.formula1.com/image/upload/f_auto/q_auto/v1677245032/content/dam/fom-website/2018-redesign-assets/Track%20icons%204x3/Emilia%20Romagna%20carbon.png.transform/3col-retina/image.png",
     };
     return circuit[locality] || "url/to/default-flag.png";
 }
 
+const router = useRouter();
+
+const redirectToCreateRAce = () => {
+    // Redirect the user to the create driver page using Vue Router
+    router.push('/create-race');
+};
+
+const redirectToDeleteRace = () => {
+    // Redirect the user to the delete driver page using Vue Router
+    router.push('/delete-race');
+};
+
+const redirectToUpdateRace = () => {
+    // Redirect the user to the delete driver page using Vue Router
+    router.push('/update-race');
+};
 </script>
 
 <template>
     <main>
+        <div class="listing" v-if="isAuthenticated">
+        <button @click="redirectToCreateRAce">Create Race</button>
+        <button @click="redirectToUpdateRace">Update Race</button>
+        <button @click="redirectToDeleteRace">Delete Race</button>
+        </div>
+
         <h1>F1 Races 2023</h1>
         <p class="description">
             Discover everything you need to know about this year's Formula 1 races -
@@ -294,5 +322,20 @@ p,
 ul {
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+button {
+    background-color: #e10600;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ba0400;
 }
 </style>
