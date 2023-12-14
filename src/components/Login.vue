@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import { defineComponent, ref } from "vue";
 import axios from "axios";
+import { onMounted } from "vue";
 
-const username = ref("paul");
-const password = ref("test");
-const loginMessage = ref(""); // New reactive property for login message
+const username = ref("admin");
+const password = ref("admin");
+
+const isAuthenticated = ref(false);
+
+onMounted(() => {
+  document.title = "Login";
+  const token = localStorage.getItem('token');
+  isAuthenticated.value = !!token; // Set to true if token exists
+});
 
 async function login() {
   try {
@@ -29,7 +37,12 @@ async function login() {
       // Store the token directly (no need for JSON.stringify)
       localStorage.setItem('token', responseBody.token);
 
-      alert(`Login successful. Welcome, ${username.value}!`);
+      if (responseBody.message === 'Login successful') {
+        alert(`Login successful. Welcome, ${username.value}!`);
+        window.location.reload();
+      } else {
+        alert(responseBody.message);
+      }
 
       // Retrieve the token
       const storedToken = localStorage.getItem('token');
@@ -39,15 +52,13 @@ async function login() {
     }
   } catch (error) {
     console.error("Login failed:", (error as any).response.data.message);
-    // Clear the login message in case of login failure
-    loginMessage.value = "";
   }
 }
 </script>
 
 <template>
   <div>
-    <h2>Login</h2>
+    <h1>Login</h1>
     <form @submit.prevent="login">
       <label for="username">Username:</label>
       <input type="text" id="username" v-model="username" required />
@@ -55,11 +66,56 @@ async function login() {
       <label for="password">Password:</label>
       <input type="password" id="password" v-model="password" required />
 
-      <button type="submit">Login</button>
+      <button type="submit" :disabled="isAuthenticated" :class="{ 'darken-button': isAuthenticated }">
+        {{ isAuthenticated ? "Already logged in" : "Login" }}
+      </button>
     </form>
   </div>
 </template>
 
 <style scoped>
-/* Add component-specific styles here if needed */
+.form-container {
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.driver-form {
+  display: grid;
+  gap: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #e10600;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ba0400;
+}
+
+.darken-button {
+  filter: brightness(0.7); /* Adjust the darkness level as needed */
+}
 </style>

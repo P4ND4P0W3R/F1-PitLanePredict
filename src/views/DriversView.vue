@@ -128,10 +128,10 @@ const redirectToUpdateDriver = () => {
 
 <template>
   <main>
-    <div class="listing">
-    <button @click="redirectToCreateDriver" v-if="isAuthenticated">Create Driver</button>
-    <button @click="redirectToUpdateDriver" v-if="isAuthenticated">Update Driver</button>
-    <button @click="redirectToDeleteDriver" v-if="isAuthenticated">Delete Driver</button>
+    <div class="listing" v-if="isAuthenticated">
+    <button @click="redirectToCreateDriver">Create Driver</button>
+    <button @click="redirectToUpdateDriver">Update Driver</button>
+    <button @click="redirectToDeleteDriver">Delete Driver</button>
     </div>
 
     <h1>F1 Drivers 2023</h1>

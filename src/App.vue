@@ -9,6 +9,8 @@ async function logout() {
   router.push('/login');
   console.log("Logged out")
   alert("You have been logged out");
+
+  window.location.reload();
 }
 
 </script>
