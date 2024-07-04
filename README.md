@@ -22,14 +22,18 @@ The topic of this project is a website that allows users to keep track of result
 
 We (Paul and Antoine) have been fans of Formula 1 for years and we just started to introduce Alexandre to this wonderful sport and universe. As big fans of Formula 1 since multiple years, we decided to create a project dedicated to this sport.
 
+> [!NOTE]
+>
+> - This project falls into the scope of the **Advanced Web Programming Course** during our fifth semester, the study abroad semester while at ESSCA in Budapest, Hungary. More precisely during our third year curriculum at [EFREI](https://www.efrei.fr/), which is a French CS engineering school.
+> - This project has been realized in parallel with the UML Project. To access this project, please see the directory [UML](docs/UML/) and read the [README.md](docs/UML/README.md) file for more information.
+
 ### ℹ️ Project Description
 
 The focus of our project is to develop a dedicated online platform for Formula 1 fans, providing them with an opportunity to engage with the sport through an informational website. This platform aims to cater to the interests of Formula 1 fans by creating a space where they can explore the sport in a unique manner.
 
-> [!NOTE]
->
-> - This project falls into the scope of the **Advanced Web Programming Course** during our fifth semester, the study abroad semester while at ESSCA in Budapest, Hungary. More precisely during our third year curriculum at [EFREI](https://www.efrei.fr/), which is a French CS engineering school.
-> - This project has been realized in parallel with the UML Project. To access this project, please see the directory [UML](docs/UML/) and read the [README.md](docs/UML/README.md) file for more information..
+The project leverages a modern web development stack: 
+- Backend: It utilizes [Node.js](https://nodejs.org/en) with [Nitro.unjs](https://nitro.unjs.io/) acting as a powerful Next Generation Server Toolkit and [TypeScript](https://www.typescriptlang.org/) for type safety. [Prisma ORM](https://www.prisma.io/) simplifies database interactions with [PostgreSQL](https://www.postgresql.org/).
+- Frontend: It's built with [Vue.js](https://vuejs.org/) for a reactive and component-based user interface, enhanced with CSS for styling.
 
 ### 👥 Team Members
 
@@ -109,3 +113,5 @@ Now you should be able to access the frontend application in your browser at `ht
   - **Personalized Predictions:** Develop a machine learning model to offer personalized race predictions based on historical data, driver performance, and user preferences.
   - **Social Features:** Enhance user engagement by integrating social features like chat rooms, forums, and the ability to share predictions and results with friends.
   - **Expanded Content:** Provide more in-depth content beyond race results, such as driver profiles, team histories, technical analysis, and news articles.
+
+- **License:** This project is licensed under the MIT License.
